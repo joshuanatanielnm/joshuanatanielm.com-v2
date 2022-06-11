@@ -70,6 +70,11 @@
   resolved "https://registry.yarnpkg.com/@chakra-icons/bootstrap/-/bootstrap-1.2.0.tgz#d2e46fa8c18f97cc7369b39eb922919736a2bac7"
   integrity sha512-21y2WCl45JnNG6+rY5I3GUqRBLwwWlvvaKu0qZsFpCIQC76LOd/AWp+j8a7kF30z4M/EUFZBPOOIAJ2Fc3f+Gg==
 
+"@chakra-icons/octicons@^1.5.0":
+  version "1.5.0"
+  resolved "https://registry.yarnpkg.com/@chakra-icons/octicons/-/octicons-1.5.0.tgz#37267549556f234d5c5228529fabc8f90482d981"
+  integrity sha512-x2fWYpuBaLfe+jrNzIIS09fTVUDma5Kyo9owoUCeACi1mUscpWUIh09E0qOpUilS+4ZYp+4fiDM1hqQ4QHzMTg==
+
 "@chakra-ui/accordion@2.0.2":
   version "2.0.2"
   resolved "https://registry.yarnpkg.com/@chakra-ui/accordion/-/accordion-2.0.2.tgz#7a1e4313a49d57c2af3063379cccb1a72c3362a5"
