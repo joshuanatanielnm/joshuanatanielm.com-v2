@@ -16,6 +16,7 @@ import TextMarkdown from './text_markdown'
 import { format } from 'date-fns'
 import { LinkExternal16, Link16 } from '@chakra-icons/octicons'
 import { Github } from '@chakra-icons/bootstrap'
+import { motion } from 'framer-motion'
 
 interface ProjectCardProps {
   value: ProjectType
@@ -78,30 +79,44 @@ export const ProjectCard = ({ value }: ProjectCardProps) => {
           <HStack spacing='4'>
             <NextLink href={value.repositoryLink} passHref>
               <Link target='_blank' p='2'>
-                <Center
-                  as='button'
-                  arial-label={value.name}
-                  color='gray.100'
-                  _hover={{
-                    color: 'white',
+                <Box
+                  as={motion.div}
+                  whileHover={{
+                    y: -4,
                   }}
                 >
-                  <Github boxSize={7} />
-                </Center>
+                  <Center
+                    as='button'
+                    arial-label={value.name}
+                    color='gray.100'
+                    _hover={{
+                      color: 'white',
+                    }}
+                  >
+                    <Github boxSize={7} />
+                  </Center>
+                </Box>
               </Link>
             </NextLink>
             <NextLink href={value.websiteLink} passHref>
               <Link target='_blank' p='2'>
-                <Center
-                  as='button'
-                  arial-label={value.name}
-                  color='gray.100'
-                  _hover={{
-                    color: 'white',
+                <Box
+                  as={motion.div}
+                  whileHover={{
+                    y: -4,
                   }}
                 >
-                  <LinkExternal16 boxSize={7} />
-                </Center>
+                  <Center
+                    as='button'
+                    arial-label={value.name}
+                    color='gray.100'
+                    _hover={{
+                      color: 'white',
+                    }}
+                  >
+                    <LinkExternal16 boxSize={7} />
+                  </Center>
+                </Box>
               </Link>
             </NextLink>
           </HStack>

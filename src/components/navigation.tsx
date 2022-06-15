@@ -2,6 +2,7 @@ import { Box, HStack, chakra, Flex } from '@chakra-ui/react'
 import { NAVIGATION } from '../constant/routes'
 import React from 'react'
 import { Link } from 'react-scroll'
+import { motion } from 'framer-motion'
 
 const NavigationLink = chakra(Link)
 
@@ -20,6 +21,23 @@ export const Navigation = () => {
       boxShadow='dark-lg'
       overflow='auto !important'
       spacing='6'
+      as={motion.div}
+      animate='visible'
+      initial='hidden'
+      variants={{
+        hidden: {
+          opacity: 0,
+          y: 20,
+        },
+        visible: {
+          opacity: 1,
+          y: 0,
+          transition: {
+            delay: 0.5,
+            ease: 'easeIn',
+          },
+        },
+      }}
     >
       <Flex cursor='pointer' direction='column' role='group' fontWeight='bold'>
         <NavigationLink

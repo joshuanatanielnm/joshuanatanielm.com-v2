@@ -28,6 +28,7 @@ import {
   ContentItemContainer,
 } from '../layouts/'
 import { ProjectCard, AppearanceCard } from '../components/card'
+import { motion } from 'framer-motion'
 
 export interface HomePageProps {
   data: AllContent
@@ -62,6 +63,23 @@ const Home: NextPage<HomePageProps> = ({ data }) => {
           direction='column'
           justifyContent='center'
           id='hero'
+          as={motion.div}
+          animate='visible'
+          initial='hidden'
+          variants={{
+            hidden: {
+              opacity: 0,
+              y: 20,
+            },
+            visible: {
+              opacity: 1,
+              y: 0,
+              transition: {
+                delay: 0.2,
+                ease: 'easeIn',
+              },
+            },
+          }}
         >
           <Text fontSize='4xl'>{'Hello, I`m Joshua Manuputty'}</Text>
           <Heading
@@ -77,18 +95,25 @@ const Home: NextPage<HomePageProps> = ({ data }) => {
           <TextMarkdown>{data.home.title}</TextMarkdown>
           <Flex gap={6} pt='10'>
             {SOCIAL_LINKS.map((item) => (
-              <NextLink href={item.link} key={item.title} passHref>
+              <NextLink href={item.link} passHref key={item.title}>
                 <Link target='_blank' p='2'>
-                  <Center
-                    as='button'
-                    arial-label={item.title}
-                    color='gray.100'
-                    _hover={{
-                      color: 'white',
+                  <Box
+                    as={motion.div}
+                    whileHover={{
+                      y: -4,
                     }}
                   >
-                    {item.icon}
-                  </Center>
+                    <Center
+                      as='button'
+                      arial-label={item.title}
+                      color='gray.100'
+                      _hover={{
+                        color: 'white',
+                      }}
+                    >
+                      {item.icon}
+                    </Center>
+                  </Box>
                 </Link>
               </NextLink>
             ))}
