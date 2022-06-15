@@ -17,6 +17,7 @@ export type ExperienceType = {
   startDate: Date
   endDate?: Date
   title: string
+  link: string
   at: string
   jobDescription: string
 }
@@ -81,6 +82,7 @@ export async function getHome() {
           title
           at
           jobDescription
+          link
           startDate
           endDate
         }
@@ -88,6 +90,7 @@ export async function getHome() {
           title
           at
           jobDescription
+          link
           startDate
           endDate
         }
