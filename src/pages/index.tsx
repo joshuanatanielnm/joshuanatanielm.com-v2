@@ -95,7 +95,7 @@ const Home: NextPage<HomePageProps> = ({ data }) => {
           </Flex>
         </Stack>
 
-        <Stack spacing='20'>
+        <Stack spacing='20' pt='8'>
           <ContentSectionContainer>
             <Heading fontSize='4xl' as='h2' id='about'>
               About
