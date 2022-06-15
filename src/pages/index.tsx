@@ -81,7 +81,9 @@ const Home: NextPage<HomePageProps> = ({ data }) => {
             },
           }}
         >
-          <Text fontSize='4xl'>{'Hello, I`m Joshua Manuputty'}</Text>
+          <Text fontSize='4xl' pt={{ base: '4', md: '0' }}>
+            {'Hello, I`m Joshua Manuputty'}
+          </Text>
           <Heading
             as='h1'
             size='4xl'
