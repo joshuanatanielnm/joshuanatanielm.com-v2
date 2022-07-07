@@ -12,7 +12,7 @@ export const Navigation = () => {
       justifyContent='space-between'
       position='fixed'
       bottom={10}
-      bg='blackAlpha.800'
+      bg='rgba(19, 36, 50, 0.9)'
       w='5xl'
       px={{ base: 5, lg: 10 }}
       rounded='2xl'
