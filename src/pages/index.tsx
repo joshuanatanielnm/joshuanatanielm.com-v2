@@ -25,10 +25,12 @@ import { ExperienceList } from '../components/list'
 import {
   PageContainer,
   ContentSectionContainer,
-  ContentItemContainer,
-} from '../layouts/'
+  GridItemContainer,
+  StackItemContainer,
+} from '../components/layouts/'
 import { ProjectCard, AppearanceCard } from '../components/card'
 import { motion } from 'framer-motion'
+import { Icon } from '../components/icon'
 
 export interface HomePageProps {
   data: AllContent
@@ -58,7 +60,7 @@ const Home: NextPage<HomePageProps> = ({ data }) => {
 
       <PageContainer>
         <Stack
-          spacing={4}
+          spacing={{ base: 6, md: 4 }}
           minH='100vh'
           direction='column'
           justifyContent='center'
@@ -81,12 +83,12 @@ const Home: NextPage<HomePageProps> = ({ data }) => {
             },
           }}
         >
-          <Text fontSize='4xl' pt={{ base: 4, md: 0 }}>
-            {'Hello, I`m Joshua Manuputty'}
+          <Text fontSize={{ base: '3xl', md: '4xl' }} lineHeight={10}>
+            Hello, I`m Joshua Manuputty
           </Text>
           <Heading
             as='h1'
-            size='4xl'
+            size={{ base: '3xl', md: '4xl' }}
             textShadow='-7px -5px #ffffff'
             pb={3}
             bgGradient='linear(to-l, #879af2, #d3208b, #fda000)'
@@ -99,23 +101,7 @@ const Home: NextPage<HomePageProps> = ({ data }) => {
             {SOCIAL_LINKS.map((item) => (
               <NextLink href={item.link} passHref key={item.title}>
                 <Link target='_blank' p={2}>
-                  <Box
-                    as={motion.div}
-                    whileHover={{
-                      y: -4,
-                    }}
-                  >
-                    <Center
-                      as='button'
-                      arial-label={item.title}
-                      color='gray.100'
-                      _hover={{
-                        color: 'white',
-                      }}
-                    >
-                      {item.icon}
-                    </Center>
-                  </Box>
+                  <Icon title={item.title} icon={item.icon} />
                 </Link>
               </NextLink>
             ))}
@@ -124,32 +110,38 @@ const Home: NextPage<HomePageProps> = ({ data }) => {
 
         <Stack spacing={20} pt={8}>
           <ContentSectionContainer>
-            <Heading fontSize='4xl' as='h2' id='about'>
+            <Heading fontSize={{ base: '3xl', md: '4xl' }} as='h2' id='about'>
               About
             </Heading>
             <Stack
               direction={{ base: 'column-reverse', lg: 'row' }}
               justifyContent='space-between'
+              spacing={4}
             >
               <Box w={{ base: 'full', lg: '70%' }}>
                 <TextMarkdown>{data.home.aboutMe}</TextMarkdown>
               </Box>
-              <Box>
+              <Center>
                 <Image
                   src={data.home.aboutImage.url}
                   alt={data.home.aboutImage.alt}
-                  w={{ base: 40, lg: 72 }}
+                  w={{ base: 40, md: 60, lg: 72 }}
                   height='auto'
+                  mx='auto'
                 />
-              </Box>
+              </Center>
             </Stack>
           </ContentSectionContainer>
 
           <ContentSectionContainer>
-            <Heading fontSize='4xl' as='h2' id='experience'>
+            <Heading
+              fontSize={{ base: '3xl', md: '4xl' }}
+              as='h2'
+              id='experience'
+            >
               Experience
             </Heading>
-            <ContentItemContainer>
+            <StackItemContainer>
               <Box>
                 <Heading fontSize='2xl' as='h3' color='white' pb={2}>
                   Work Experience
@@ -170,29 +162,33 @@ const Home: NextPage<HomePageProps> = ({ data }) => {
                   ))}
                 </UnorderedList>
               </Box>
-            </ContentItemContainer>
+            </StackItemContainer>
           </ContentSectionContainer>
 
           <ContentSectionContainer>
-            <Heading fontSize='4xl' as='h2' id='work'>
+            <Heading fontSize={{ base: '3xl', md: '4xl' }} as='h2' id='work'>
               Some Things I’ve Built
             </Heading>
-            <ContentItemContainer>
+            <GridItemContainer>
               {data.allProjects.map((v: ProjectType) => (
                 <ProjectCard value={v} key={v.name} />
               ))}
-            </ContentItemContainer>
+            </GridItemContainer>
           </ContentSectionContainer>
 
           <ContentSectionContainer>
-            <Heading fontSize='4xl' as='h2' id='apparence'>
+            <Heading
+              fontSize={{ base: '3xl', md: '4xl' }}
+              as='h2'
+              id='apparence'
+            >
               Recent Appearances
             </Heading>
-            <ContentItemContainer>
+            <StackItemContainer>
               {data.allTalks.map((v: TalkType) => (
                 <AppearanceCard value={v} key={v.name} />
               ))}
-            </ContentItemContainer>
+            </StackItemContainer>
           </ContentSectionContainer>
         </Stack>
 
