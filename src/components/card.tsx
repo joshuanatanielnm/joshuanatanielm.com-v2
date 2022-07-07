@@ -1,11 +1,10 @@
 import {
   Box,
-  Center,
-  Flex,
   Heading,
   HStack,
   Image,
   Link,
+  Spacer,
   Stack,
   Text,
 } from '@chakra-ui/react'
@@ -16,7 +15,7 @@ import TextMarkdown from './text-markdown'
 import { format } from 'date-fns'
 import { LinkExternal16 } from '@chakra-icons/octicons'
 import { Github } from '@chakra-icons/bootstrap'
-import { motion } from 'framer-motion'
+import { Icon } from './icon'
 
 interface ProjectCardProps {
   value: ProjectType
@@ -35,87 +34,54 @@ export const ProjectCard = ({ value }: ProjectCardProps) => {
       role='group'
       bg='gray.700'
       borderRadius='lg'
-      overflow='hidden'
       p={1}
     >
-      <Flex
-        gap={4}
+      <Stack
+        spacing={4}
         bgColor='#011627'
         overflow='hidden'
         borderRadius='lg'
-        direction={{ base: 'column', lg: 'row' }}
+        direction='column'
+        height='full'
       >
         <Box>
-          <Box
-            w={{ base: 'full', lg: '500px' }}
-            h={{ base: 'full', lg: '250px' }}
+          <Image
+            src={value.image.url}
+            alt={value.image.alt}
+            w='full'
             bg='gray.700'
-          >
-            <Image
-              src={value.image.url}
-              alt={value.image.alt}
-              w='full'
-              h='full'
-              _groupHover={{
-                opacity: 1,
-              }}
-              opacity={0.5}
-            />
-          </Box>
+            h='full'
+            _groupHover={{
+              opacity: 1,
+            }}
+            opacity={0.5}
+          />
         </Box>
-        <Stack justifyContent='center' p={{ base: 4, lg: 0 }}>
+        <Stack justifyContent='center' py={4} px={{ base: 3, md: 6 }} h='full'>
           <Heading fontSize='2xl' pb={2}>
             {value.name}
           </Heading>
-          <Text fontSize='xl' pb={6}>
+          <Text fontSize={{ base: 'lg', md: 'xl' }} pb={6}>
             {value.summary}
           </Text>
+          <Spacer />
           <HStack spacing={4}>
             <NextLink href={value.repositoryLink} passHref>
               <Link target='_blank' p={2}>
-                <Box
-                  as={motion.div}
-                  whileHover={{
-                    y: -4,
-                  }}
-                >
-                  <Center
-                    as='button'
-                    arial-label={value.name}
-                    color='gray.100'
-                    _hover={{
-                      color: 'white',
-                    }}
-                  >
-                    <Github boxSize={7} />
-                  </Center>
-                </Box>
+                <Icon title={value.name} icon={<Github boxSize={7} />} />
               </Link>
             </NextLink>
             <NextLink href={value.websiteLink} passHref>
               <Link target='_blank' p={2}>
-                <Box
-                  as={motion.div}
-                  whileHover={{
-                    y: -4,
-                  }}
-                >
-                  <Center
-                    as='button'
-                    arial-label={value.name}
-                    color='gray.100'
-                    _hover={{
-                      color: 'white',
-                    }}
-                  >
-                    <LinkExternal16 boxSize={7} />
-                  </Center>
-                </Box>
+                <Icon
+                  title={value.name}
+                  icon={<LinkExternal16 boxSize={7} />}
+                />
               </Link>
             </NextLink>
           </HStack>
         </Stack>
-      </Flex>
+      </Stack>
     </Box>
   )
 }
