@@ -3,6 +3,7 @@ import NextLink from 'next/link'
 import { Text, Link } from '@chakra-ui/react'
 import ReactMarkdown from 'react-markdown'
 import ChakraUIRenderer from 'chakra-ui-markdown-renderer'
+import { ReactMarkdownProps } from 'react-markdown/lib/ast-to-react'
 
 interface TextMarkdownProps {
   children: string
@@ -10,7 +11,7 @@ interface TextMarkdownProps {
 
 export const TextMarkdown = ({ children }: TextMarkdownProps) => {
   const markdownTheme = {
-    p: (props: any) => {
+    p: (props: ReactMarkdownProps) => {
       const { children } = props
       return (
         <Text fontSize='xl' color='gray.300'>
@@ -18,7 +19,7 @@ export const TextMarkdown = ({ children }: TextMarkdownProps) => {
         </Text>
       )
     },
-    a: (props: any) => {
+    a: (props: ReactMarkdownProps & { href?: string }) => {
       const { children, href } = props
       return (
         <NextLink href={href || ''} passHref>
