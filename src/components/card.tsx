@@ -64,13 +64,7 @@ export const ProjectCard = ({ value }: ProjectCardProps) => {
           </Box>
         </Box>
         <Stack justifyContent='center' p={{ base: 4, lg: 0 }}>
-          <Heading
-            fontSize='2xl'
-            pb={2}
-            _groupHover={{
-              textDecoration: 'underline',
-            }}
-          >
+          <Heading fontSize='2xl' pb={2}>
             {value.name}
           </Heading>
           <Text fontSize='xl' pb={6}>
