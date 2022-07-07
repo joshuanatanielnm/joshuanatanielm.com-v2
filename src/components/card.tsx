@@ -14,7 +14,7 @@ import { ProjectType, TalkType } from '../pages/api/fetch'
 import NextLink from 'next/link'
 import TextMarkdown from './text-markdown'
 import { format } from 'date-fns'
-import { LinkExternal16, Link16 } from '@chakra-icons/octicons'
+import { LinkExternal16 } from '@chakra-icons/octicons'
 import { Github } from '@chakra-icons/bootstrap'
 import { motion } from 'framer-motion'
 
@@ -133,18 +133,15 @@ export const AppearanceCard = ({ value }: AppearanceCardProps) => {
       <NextLink href={value.link} passHref>
         <Link target='_blank' style={{ textDecoration: 'none' }} role='group'>
           <Box bgColor='#011627' p={4} borderRadius='lg'>
-            <Flex gap={4}>
-              <Heading
-                fontSize='2xl'
-                pb={2}
-                _groupHover={{
-                  textDecoration: 'underline',
-                }}
-              >
-                {value.name}
-              </Heading>
-              <Link16 boxSize={7} />
-            </Flex>
+            <Heading
+              fontSize='2xl'
+              pb={2}
+              _groupHover={{
+                textDecoration: 'underline',
+              }}
+            >
+              {value.name}
+            </Heading>
             <Text mb={2}>
               {format(new Date(value.date), 'EEEE, MMMM do yyyy')}
             </Text>
