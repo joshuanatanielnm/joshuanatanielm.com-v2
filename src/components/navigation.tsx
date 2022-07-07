@@ -14,13 +14,13 @@ export const Navigation = () => {
       bottom={10}
       bg='blackAlpha.800'
       w='5xl'
-      px={{ base: '5', lg: '10' }}
+      px={{ base: 5, lg: 10 }}
       rounded='2xl'
       fontSize={{ base: 'lg', lg: 'xl' }}
       maxW='calc(100vw - 14px)'
       boxShadow='dark-lg'
       overflow='auto !important'
-      spacing='6'
+      spacing={6}
       as={motion.div}
       animate='visible'
       initial='hidden'
@@ -49,7 +49,7 @@ export const Navigation = () => {
           _groupHover={{
             color: 'white',
           }}
-          py='6'
+          py={6}
           offset={-30}
           duration={1000}
         >
@@ -57,7 +57,7 @@ export const Navigation = () => {
         </NavigationLink>
         <Box
           w='full'
-          h='1'
+          h={1}
           _groupHover={{
             bgGradient: 'linear(to-l, #879af2, #d3208b, #fda000)',
           }}
@@ -65,7 +65,7 @@ export const Navigation = () => {
           rounded='lg'
         />
       </Flex>
-      <HStack spacing='5'>
+      <HStack spacing={5}>
         {NAVIGATION.map((v) => (
           <Flex cursor='pointer' direction='column' role='group' key={v.path}>
             <NavigationLink
@@ -77,7 +77,7 @@ export const Navigation = () => {
               _groupHover={{
                 color: 'white',
               }}
-              py='6'
+              py={6}
               offset={-30}
               duration={1000}
             >
@@ -85,7 +85,7 @@ export const Navigation = () => {
             </NavigationLink>
             <Box
               w='full'
-              h='1'
+              h={1}
               _groupHover={{
                 bgGradient: 'linear(to-l, #879af2, #d3208b, #fda000)',
               }}

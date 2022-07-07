@@ -12,7 +12,7 @@ import {
 import React from 'react'
 import { ProjectType, TalkType } from '../pages/api/fetch'
 import NextLink from 'next/link'
-import TextMarkdown from './text_markdown'
+import TextMarkdown from './text-markdown'
 import { format } from 'date-fns'
 import { LinkExternal16, Link16 } from '@chakra-icons/octicons'
 import { Github } from '@chakra-icons/bootstrap'
@@ -36,10 +36,10 @@ export const ProjectCard = ({ value }: ProjectCardProps) => {
       bg='gray.700'
       borderRadius='lg'
       overflow='hidden'
-      p='1'
+      p={1}
     >
       <Flex
-        gap='4'
+        gap={4}
         bgColor='#011627'
         overflow='hidden'
         borderRadius='lg'
@@ -57,28 +57,28 @@ export const ProjectCard = ({ value }: ProjectCardProps) => {
               w='full'
               h='full'
               _groupHover={{
-                opacity: '1',
+                opacity: 1,
               }}
-              opacity='0.5'
+              opacity={0.5}
             />
           </Box>
         </Box>
-        <Stack justifyContent='center' p={{ base: '4', lg: 0 }}>
+        <Stack justifyContent='center' p={{ base: 4, lg: 0 }}>
           <Heading
             fontSize='2xl'
-            pb='2'
+            pb={2}
             _groupHover={{
               textDecoration: 'underline',
             }}
           >
             {value.name}
           </Heading>
-          <Text fontSize='xl' pb='6'>
+          <Text fontSize='xl' pb={6}>
             {value.summary}
           </Text>
-          <HStack spacing='4'>
+          <HStack spacing={4}>
             <NextLink href={value.repositoryLink} passHref>
-              <Link target='_blank' p='2'>
+              <Link target='_blank' p={2}>
                 <Box
                   as={motion.div}
                   whileHover={{
@@ -99,7 +99,7 @@ export const ProjectCard = ({ value }: ProjectCardProps) => {
               </Link>
             </NextLink>
             <NextLink href={value.websiteLink} passHref>
-              <Link target='_blank' p='2'>
+              <Link target='_blank' p={2}>
                 <Box
                   as={motion.div}
                   whileHover={{
@@ -134,15 +134,15 @@ export const AppearanceCard = ({ value }: AppearanceCardProps) => {
       }}
       bg='gray.700'
       borderRadius='lg'
-      p='1'
+      p={1}
     >
       <NextLink href={value.link} passHref>
         <Link target='_blank' style={{ textDecoration: 'none' }} role='group'>
-          <Box bgColor='#011627' p='4' borderRadius='lg'>
-            <Flex gap='4'>
+          <Box bgColor='#011627' p={4} borderRadius='lg'>
+            <Flex gap={4}>
               <Heading
                 fontSize='2xl'
-                pb='2'
+                pb={2}
                 _groupHover={{
                   textDecoration: 'underline',
                 }}
@@ -151,7 +151,7 @@ export const AppearanceCard = ({ value }: AppearanceCardProps) => {
               </Heading>
               <Link16 boxSize={7} />
             </Flex>
-            <Text mb='2'>
+            <Text mb={2}>
               {format(new Date(value.date), 'EEEE, MMMM do yyyy')}
             </Text>
             <TextMarkdown>{value.description}</TextMarkdown>
