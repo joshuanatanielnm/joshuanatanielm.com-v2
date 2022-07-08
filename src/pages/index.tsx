@@ -7,7 +7,6 @@ import {
   Stack,
   Text,
   Link,
-  Image,
   UnorderedList,
   Center,
   Flex,
@@ -31,6 +30,7 @@ import {
 import { ProjectCard, AppearanceCard } from '../components/card'
 import { motion } from 'framer-motion'
 import { Icon } from '../components/icon'
+import Image from 'next/image'
 
 export interface HomePageProps {
   data: AllContent
@@ -122,13 +122,14 @@ const Home: NextPage<HomePageProps> = ({ data }) => {
                 <TextMarkdown>{data.home.aboutMe}</TextMarkdown>
               </Box>
               <Center>
-                <Image
-                  src={data.home.aboutImage.url}
-                  alt={data.home.aboutImage.alt}
-                  w={{ base: 40, md: 60, lg: 72 }}
-                  height='auto'
-                  mx='auto'
-                />
+                <Box boxSize={{ base: 40, md: 60, lg: 72 }} position='relative'>
+                  <Image
+                    src={data.home.aboutImage.url}
+                    alt={data.home.aboutImage.alt}
+                    layout='fill'
+                    objectFit='contain'
+                  />
+                </Box>
               </Center>
             </Stack>
           </ContentSectionContainer>
