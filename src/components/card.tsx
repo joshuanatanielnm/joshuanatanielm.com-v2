@@ -2,7 +2,6 @@ import {
   Box,
   Heading,
   HStack,
-  Image,
   Link,
   Spacer,
   Stack,
@@ -16,6 +15,7 @@ import { format } from 'date-fns'
 import { LinkExternal16 } from '@chakra-icons/octicons'
 import { Github } from '@chakra-icons/bootstrap'
 import { Icon } from './icon'
+import Image from 'next/image'
 
 interface ProjectCardProps {
   value: ProjectType
@@ -44,17 +44,17 @@ export const ProjectCard = ({ value }: ProjectCardProps) => {
         direction='column'
         height='full'
       >
-        <Box>
+        <Box
+          _groupHover={{
+            opacity: 1,
+          }}
+          opacity={0.5}
+        >
           <Image
             src={value.image.url}
             alt={value.image.alt}
-            w='full'
-            bg='gray.700'
-            h='full'
-            _groupHover={{
-              opacity: 1,
-            }}
-            opacity={0.5}
+            width={800}
+            height={420}
           />
         </Box>
         <Stack justifyContent='center' py={4} px={{ base: 3, md: 6 }} h='full'>
@@ -67,12 +67,12 @@ export const ProjectCard = ({ value }: ProjectCardProps) => {
           <Spacer />
           <HStack spacing={4}>
             <NextLink href={value.repositoryLink} passHref>
-              <Link target='_blank' p={2}>
+              <Link target='_blank' p={2} aria-label='github repository'>
                 <Icon title={value.name} icon={<Github boxSize={7} />} />
               </Link>
             </NextLink>
             <NextLink href={value.websiteLink} passHref>
-              <Link target='_blank' p={2}>
+              <Link target='_blank' p={2} aria-label='project website'>
                 <Icon
                   title={value.name}
                   icon={<LinkExternal16 boxSize={7} />}
