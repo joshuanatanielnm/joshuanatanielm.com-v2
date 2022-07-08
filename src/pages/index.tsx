@@ -10,6 +10,7 @@ import {
   UnorderedList,
   Center,
   Flex,
+  SlideFade,
 } from '@chakra-ui/react'
 import {
   getHome,
@@ -28,7 +29,6 @@ import {
   StackItemContainer,
 } from '../components/layouts/'
 import { ProjectCard, AppearanceCard } from '../components/card'
-import { motion } from 'framer-motion'
 import { Icon } from '../components/icon'
 import Image from 'next/image'
 
@@ -59,54 +59,39 @@ const Home: NextPage<HomePageProps> = ({ data }) => {
       />
 
       <PageContainer>
-        <Stack
-          spacing={{ base: 6, md: 4 }}
-          minH='100vh'
-          direction='column'
-          justifyContent='center'
-          id='hero'
-          as={motion.div}
-          animate='visible'
-          initial='hidden'
-          variants={{
-            hidden: {
-              opacity: 0,
-              y: 20,
-            },
-            visible: {
-              opacity: 1,
-              y: 0,
-              transition: {
-                delay: 0.2,
-                ease: 'easeIn',
-              },
-            },
-          }}
-        >
-          <Text fontSize={{ base: '3xl', md: '4xl' }} lineHeight={10}>
-            Hello, I`m Joshua Manuputty
-          </Text>
-          <Heading
-            as='h1'
-            size={{ base: '3xl', md: '4xl' }}
-            textShadow='-7px -5px #ffffff'
-            pb={3}
-            bgGradient='linear(to-l, #879af2, #d3208b, #fda000)'
-            bgClip='text'
+        <SlideFade in offsetY='20px' delay={0.2}>
+          <Stack
+            spacing={{ base: 6, md: 4 }}
+            minH='100vh'
+            direction='column'
+            justifyContent='center'
+            id='hero'
           >
-            I build things for the web.
-          </Heading>
-          <TextMarkdown>{data.home.title}</TextMarkdown>
-          <Flex gap={6} pt={10}>
-            {SOCIAL_LINKS.map((item) => (
-              <NextLink href={item.link} passHref key={item.title}>
-                <Link target='_blank' p={2} aria-label={item.title}>
-                  <Icon title={item.title} icon={item.icon} />
-                </Link>
-              </NextLink>
-            ))}
-          </Flex>
-        </Stack>
+            <Text fontSize={{ base: '3xl', md: '4xl' }} lineHeight={10}>
+              Hello, I`m Joshua Manuputty
+            </Text>
+            <Heading
+              as='h1'
+              size={{ base: '3xl', md: '4xl' }}
+              textShadow='-7px -5px #ffffff'
+              pb={3}
+              bgGradient='linear(to-l, #879af2, #d3208b, #fda000)'
+              bgClip='text'
+            >
+              I build things for the web.
+            </Heading>
+            <TextMarkdown>{data.home.title}</TextMarkdown>
+            <Flex gap={6} pt={10}>
+              {SOCIAL_LINKS.map((item) => (
+                <NextLink href={item.link} passHref key={item.title}>
+                  <Link target='_blank' p={2} aria-label={item.title}>
+                    <Icon title={item.title} icon={item.icon} />
+                  </Link>
+                </NextLink>
+              ))}
+            </Flex>
+          </Stack>
+        </SlideFade>
 
         <Stack spacing={20} pt={8}>
           <ContentSectionContainer>

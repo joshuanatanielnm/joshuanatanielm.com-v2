@@ -1,6 +1,5 @@
 import React, { ReactNode } from 'react'
 
-import { motion } from 'framer-motion'
 import { Box, Center } from '@chakra-ui/react'
 
 interface IconProps {
@@ -11,9 +10,9 @@ interface IconProps {
 export const Icon = ({ title, icon }: IconProps) => {
   return (
     <Box
-      as={motion.div}
-      whileHover={{
-        y: -4,
+      _hover={{
+        transform: 'translateY(-4px)',
+        transition: '0.2s',
       }}
     >
       <Center
