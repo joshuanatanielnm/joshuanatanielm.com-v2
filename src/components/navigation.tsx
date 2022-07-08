@@ -1,4 +1,4 @@
-import { Box, HStack, chakra, Flex } from '@chakra-ui/react'
+import { Box, HStack, chakra, Flex, Spacer } from '@chakra-ui/react'
 import { NAVIGATION } from '../constant/routes'
 import React from 'react'
 import { Link } from 'react-scroll'
@@ -9,7 +9,6 @@ const NavigationLink = chakra(Link)
 export const Navigation = () => {
   return (
     <HStack
-      justifyContent='space-between'
       position='fixed'
       bottom={10}
       bg='rgba(19, 36, 50, 0.9)'
@@ -42,6 +41,8 @@ export const Navigation = () => {
       <Flex cursor='pointer' direction='column' role='group' fontWeight='bold'>
         <NavigationLink
           activeClass='active'
+          role='button'
+          aria-label='go to landing page'
           to='hero'
           spy={true}
           smooth={true}
@@ -65,12 +66,15 @@ export const Navigation = () => {
           rounded='lg'
         />
       </Flex>
+      <Spacer />
       <HStack spacing={5}>
         {NAVIGATION.map((v) => (
           <Flex cursor='pointer' direction='column' role='group' key={v.path}>
             <NavigationLink
               activeClass='active'
+              role='button'
               to={v.path}
+              aria-label={`go to ${v.title}`}
               spy={true}
               smooth={true}
               color='gray.300'

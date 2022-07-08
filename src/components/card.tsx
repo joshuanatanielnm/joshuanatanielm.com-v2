@@ -97,7 +97,12 @@ export const AppearanceCard = ({ value }: AppearanceCardProps) => {
       p={1}
     >
       <NextLink href={value.link} passHref>
-        <Link target='_blank' style={{ textDecoration: 'none' }} role='group'>
+        <Link
+          target='_blank'
+          style={{ textDecoration: 'none' }}
+          role='group'
+          aria-label={value.name}
+        >
           <Box bgColor='#011627' p={4} borderRadius='lg'>
             <Heading
               fontSize='2xl'

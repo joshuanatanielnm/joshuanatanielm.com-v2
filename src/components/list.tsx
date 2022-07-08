@@ -19,6 +19,7 @@ export const ExperienceList = ({ value }: ExperienceListProps) => {
               fontWeight='medium'
               target='_blank'
               fontSize={{ base: 'lg', md: 'xl' }}
+              aria-label={value.at}
             >
               {value.at}
             </Link>
