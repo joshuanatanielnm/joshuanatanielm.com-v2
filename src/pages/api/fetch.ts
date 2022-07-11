@@ -1,68 +1,68 @@
-const API_URL = 'https://graphql.datocms.com'
-const API_TOKEN = process.env.DATOCMS_API_TOKEN
+const API_URL = "https://graphql.datocms.com";
+const API_TOKEN = process.env.DATOCMS_API_TOKEN;
 
 type ImageType = {
-  url: string
-  alt: string
-}
+  url: string;
+  alt: string;
+};
 
 export type HomeType = {
-  title: string
-  aboutMe: string
-  aboutImage: ImageType
-  myTechStacks: string[]
-}
+  title: string;
+  aboutMe: string;
+  aboutImage: ImageType;
+  myTechStacks: string[];
+};
 
 export type ExperienceType = {
-  startDate: Date
-  endDate?: Date
-  title: string
-  link: string
-  at: string
-  jobDescription: string
-}
+  startDate: Date;
+  endDate?: Date;
+  title: string;
+  link: string;
+  at: string;
+  jobDescription: string;
+};
 
 export type ProjectType = {
-  name: string
-  image: ImageType
-  summary: string
-  websiteLink: string
-  repositoryLink: string
-}
+  name: string;
+  image: ImageType;
+  summary: string;
+  websiteLink: string;
+  repositoryLink: string;
+};
 
 export type TalkType = {
-  name: string
-  description: string
-  date: Date
-  link: string
-}
+  name: string;
+  description: string;
+  date: Date;
+  link: string;
+};
 
 export type AllContent = {
-  home: HomeType
-  allWorkExperiences: ExperienceType[]
-  allCommunityExperiences: ExperienceType[]
-  allProjects: ProjectType[]
-  allTalks: TalkType[]
-}
+  home: HomeType;
+  allWorkExperiences: ExperienceType[];
+  allCommunityExperiences: ExperienceType[];
+  allProjects: ProjectType[];
+  allTalks: TalkType[];
+};
 
 export async function fetchAPI(query: string) {
   const res = await fetch(API_URL, {
-    method: 'POST',
+    method: "POST",
     headers: {
-      'Content-Type': 'application/json',
+      "Content-Type": "application/json",
       Authorization: `Bearer ${API_TOKEN}`,
     },
     body: JSON.stringify({
       query,
     }),
-  })
+  });
 
-  const json = await res.json()
+  const json = await res.json();
 
   if (json.errors) {
-    throw new Error('Failed to fetch API')
+    throw new Error("Failed to fetch API");
   }
-  return json.data
+  return json.data;
 }
 
 export async function getHome() {
@@ -110,7 +110,7 @@ export async function getHome() {
           link
         }
       }
-    `)
+    `);
 
-  return data
+  return data;
 }

@@ -1,40 +1,40 @@
-import React from 'react'
-import NextLink from 'next/link'
-import { Text, Link } from '@chakra-ui/react'
-import ReactMarkdown from 'react-markdown'
-import ChakraUIRenderer from 'chakra-ui-markdown-renderer'
-import { ReactMarkdownProps } from 'react-markdown/lib/ast-to-react'
+import React from "react";
+import NextLink from "next/link";
+import { Text, Link } from "@chakra-ui/react";
+import ReactMarkdown from "react-markdown";
+import ChakraUIRenderer from "chakra-ui-markdown-renderer";
+import { ReactMarkdownProps } from "react-markdown/lib/ast-to-react";
 
 interface TextMarkdownProps {
-  children: string
+  children: string;
 }
 
 export const TextMarkdown = ({ children }: TextMarkdownProps) => {
   const markdownTheme = {
     p: (props: ReactMarkdownProps) => {
-      const { children } = props
+      const { children } = props;
       return (
-        <Text fontSize={{ base: 'lg', md: 'xl' }} color='gray.300'>
+        <Text fontSize={{ base: "lg", md: "xl" }} color="gray.300">
           {children}
         </Text>
-      )
+      );
     },
     a: (props: ReactMarkdownProps & { href?: string }) => {
-      const { children, href } = props
+      const { children, href } = props;
       return (
-        <NextLink href={href || ''} passHref>
-          <Link color='white' fontWeight='medium' target='_blank'>
+        <NextLink href={href || ""} passHref>
+          <Link color="white" fontWeight="medium" target="_blank">
             {children}
           </Link>
         </NextLink>
-      )
+      );
     },
-  }
+  };
   return (
     <ReactMarkdown components={ChakraUIRenderer(markdownTheme)}>
       {children}
     </ReactMarkdown>
-  )
-}
+  );
+};
 
-export default TextMarkdown
+export default TextMarkdown;
