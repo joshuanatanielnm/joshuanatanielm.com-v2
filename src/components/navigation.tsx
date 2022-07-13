@@ -29,8 +29,8 @@ export const Navigation = () => {
               role="button"
               aria-label="go to landing page"
               to="hero"
-              spy={true}
-              smooth={true}
+              spy
+              smooth
               color="gray.300"
               _groupHover={{
                 color: "white",
@@ -65,8 +65,8 @@ export const Navigation = () => {
                   role="button"
                   to={v.path}
                   aria-label={`go to ${v.title}`}
-                  spy={true}
-                  smooth={true}
+                  spy
+                  smooth
                   color="gray.300"
                   _groupHover={{
                     color: "white",
