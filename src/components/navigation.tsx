@@ -1,7 +1,6 @@
 import { Box, HStack, chakra, Flex, Spacer, SlideFade } from "@chakra-ui/react";
 import { NAVIGATION } from "../constant/routes";
-import React from "react";
-import { Link } from "react-scroll";
+import Link from "react-scroll/modules/components/Link";
 
 const NavigationLink = chakra(Link);
 

@@ -7,13 +7,12 @@ import {
   Stack,
   Text,
 } from "@chakra-ui/react";
-import React from "react";
 import { ProjectType, TalkType } from "../pages/api/fetch";
 import dynamic from "next/dynamic";
 import NextLink from "next/link";
 import { format } from "date-fns";
-import { LinkExternal16 } from "@chakra-icons/octicons";
-import { Github } from "@chakra-icons/bootstrap";
+import { GitHub, Link as LinkIcon } from "iconoir-react";
+
 import { Icon } from "./icon";
 import Image from "next/image";
 
@@ -73,15 +72,12 @@ export const ProjectCard = ({ value }: ProjectCardProps) => {
           <HStack spacing={4}>
             <NextLink href={value.repositoryLink} passHref>
               <Link target="_blank" p={2} aria-label="github repository">
-                <Icon title={value.name} icon={<Github boxSize={7} />} />
+                <Icon title={value.name} icon={<GitHub />} />
               </Link>
             </NextLink>
             <NextLink href={value.websiteLink} passHref>
               <Link target="_blank" p={2} aria-label="project website">
-                <Icon
-                  title={value.name}
-                  icon={<LinkExternal16 boxSize={7} />}
-                />
+                <Icon title={value.name} icon={<LinkIcon />} />
               </Link>
             </NextLink>
           </HStack>
