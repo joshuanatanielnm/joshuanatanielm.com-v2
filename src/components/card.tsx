@@ -9,19 +9,23 @@ import {
 } from "@chakra-ui/react";
 import React from "react";
 import { ProjectType, TalkType } from "../pages/api/fetch";
+import dynamic from "next/dynamic";
 import NextLink from "next/link";
-import TextMarkdown from "./text-markdown";
 import { format } from "date-fns";
 import { LinkExternal16 } from "@chakra-icons/octicons";
 import { Github } from "@chakra-icons/bootstrap";
 import { Icon } from "./icon";
 import Image from "next/image";
 
-interface ProjectCardProps {
+const TextMarkdown = dynamic(() => import("./text-markdown"), {
+  ssr: false,
+});
+
+export interface ProjectCardProps {
   value: ProjectType;
 }
 
-interface AppearanceCardProps {
+export interface AppearanceCardProps {
   value: TalkType;
 }
 
@@ -50,7 +54,13 @@ export const ProjectCard = ({ value }: ProjectCardProps) => {
           }}
           opacity={0.5}
         >
-          <Image src={value.image.url} alt="" width={800} height={420} />
+          <Image
+            src={value.image.url}
+            alt=""
+            width={800}
+            height={420}
+            quality={70}
+          />
         </Box>
         <Stack justifyContent="center" py={4} px={{ base: 3, md: 6 }} h="full">
           <Heading fontSize="2xl" pb={2}>

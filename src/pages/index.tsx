@@ -20,7 +20,8 @@ import {
   TalkType,
 } from "./api/fetch";
 import { SOCIAL_LINKS } from "../constant/social";
-import TextMarkdown from "../components/text-markdown";
+import dynamic from "next/dynamic";
+
 import { ExperienceList } from "../components/list";
 import {
   PageContainer,
@@ -28,9 +29,27 @@ import {
   GridItemContainer,
   StackItemContainer,
 } from "../components/layouts/";
-import { ProjectCard, AppearanceCard } from "../components/card";
+import { AppearanceCardProps, ProjectCardProps } from "../components/card";
 import { Icon } from "../components/icon";
 import Image from "next/image";
+
+const TextMarkdown = dynamic(() => import("../components/text-markdown"), {
+  ssr: false,
+});
+
+const ProjectCard = dynamic<ProjectCardProps>(
+  () => import("../components/card").then((mod) => mod.ProjectCard),
+  {
+    ssr: false,
+  }
+);
+
+const AppearanceCard = dynamic<AppearanceCardProps>(
+  () => import("../components/card").then((mod) => mod.AppearanceCard),
+  {
+    ssr: false,
+  }
+);
 
 export interface HomePageProps {
   data: AllContent;
@@ -117,6 +136,7 @@ const Home: NextPage<HomePageProps> = ({ data }) => {
                     alt={data.home.aboutImage.alt}
                     layout="fill"
                     objectFit="contain"
+                    quality={80}
                   />
                 </Box>
               </Center>
