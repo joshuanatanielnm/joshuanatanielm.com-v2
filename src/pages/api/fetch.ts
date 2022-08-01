@@ -93,7 +93,7 @@ export async function getHome() {
           startDate
           endDate
         }
-        allProjects(orderBy: _createdAt_DESC, first:"4") {
+        allProjects(orderBy: _createdAt_DESC) {
           name
           image {
             alt
