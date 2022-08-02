@@ -32,10 +32,7 @@ import {
 import { AppearanceCardProps, ProjectCardProps } from "../components/card";
 import { Icon } from "../components/icon";
 import Image from "next/image";
-
-const TextMarkdown = dynamic(() => import("../components/text-markdown"), {
-  ssr: false,
-});
+import { TextMarkdown } from "../components/text-markdown";
 
 const ProjectCard = dynamic<ProjectCardProps>(
   () => import("../components/card").then((mod) => mod.ProjectCard),
