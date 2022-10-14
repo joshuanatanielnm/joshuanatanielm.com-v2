@@ -24,7 +24,7 @@ export const ExperienceList = ({ value }: ExperienceListProps) => {
             </Link>
           </NextLink>{" "}
           ({format(new Date(value.startDate), "MMMM yyyy")} -{" "}
-          {value.endDate == null ? "Present" : value.endDate})
+          {value.endDate == null ? "Present" : {format(new Date(value.endDate), "MMMM yyyy")})
         </>
       </ListItem>
       <Text fontSize={{ base: "lg", md: "xl" }}>{value.jobDescription}</Text>
