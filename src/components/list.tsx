@@ -1,5 +1,5 @@
 import NextLink from "next/link";
-import { ListItem, Text, Link } from "@chakra-ui/react";
+import { ListItem, Text, Link, Box } from "@chakra-ui/react";
 import { format } from "date-fns";
 import { ExperienceType } from "../pages/api/fetch";
 
@@ -8,7 +8,7 @@ interface ExperienceListProps {
 }
 export const ExperienceList = ({ value }: ExperienceListProps) => {
   return (
-    <>
+    <Box pb={4}>
       <ListItem color="gray.300">
         <>
           {value.title} at{" "}
@@ -31,6 +31,6 @@ export const ExperienceList = ({ value }: ExperienceListProps) => {
         </>
       </ListItem>
       <Text fontSize={{ base: "lg", md: "xl" }}>{value.jobDescription}</Text>
-    </>
+    </Box>
   );
 };
