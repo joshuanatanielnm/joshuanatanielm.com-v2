@@ -203,7 +203,7 @@ const Home: NextPage<HomePageProps> = ({ data }) => {
           <Text>Create this website with using Next.js and Chakra UI</Text>
           <Box>
             <Text>Contents licensed under CC BY-NC-SA 4.0</Text>
-            <Text>MIT License © 2022 Joshua Manuputty</Text>
+            <Text>MIT License © 2023 Joshua Manuputty</Text>
           </Box>
         </Stack>
       </PageContainer>
