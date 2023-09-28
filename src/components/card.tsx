@@ -9,7 +9,6 @@ import {
 } from "@chakra-ui/react";
 import { ProjectType, TalkType } from "../pages/api/fetch";
 import dynamic from "next/dynamic";
-import NextLink from "next/link";
 import { format } from "date-fns";
 import { GitHub, Link as LinkIcon } from "iconoir-react";
 
@@ -70,16 +69,22 @@ export const ProjectCard = ({ value }: ProjectCardProps) => {
           </Text>
           <Spacer />
           <HStack spacing={4}>
-            <NextLink href={value.repositoryLink} passHref>
-              <Link target="_blank" p={2} aria-label="github repository">
-                <Icon title={value.name} icon={<GitHub />} />
-              </Link>
-            </NextLink>
-            <NextLink href={value.websiteLink} passHref>
-              <Link target="_blank" p={2} aria-label="project website">
-                <Icon title={value.name} icon={<LinkIcon />} />
-              </Link>
-            </NextLink>
+            <Link
+              target="_blank"
+              p={2}
+              href={value.repositoryLink}
+              aria-label="github repository"
+            >
+              <Icon title={value.name} icon={<GitHub />} />
+            </Link>
+            <Link
+              target="_blank"
+              p={2}
+              href={value.websiteLink}
+              aria-label="project website"
+            >
+              <Icon title={value.name} icon={<LinkIcon />} />
+            </Link>
           </HStack>
         </Stack>
       </Stack>
@@ -97,30 +102,29 @@ export const AppearanceCard = ({ value }: AppearanceCardProps) => {
       borderRadius="lg"
       p={1}
     >
-      <NextLink href={value.link} passHref>
-        <Link
-          target="_blank"
-          style={{ textDecoration: "none" }}
-          role="group"
-          aria-label={value.name}
-        >
-          <Box bgColor="#011627" p={4} borderRadius="lg">
-            <Heading
-              fontSize="2xl"
-              pb={2}
-              _groupHover={{
-                textDecoration: "underline",
-              }}
-            >
-              {value.name}
-            </Heading>
-            <Text mb={2}>
-              {format(new Date(value.date), "EEEE, MMMM do yyyy")}
-            </Text>
-            <TextMarkdown>{value.description}</TextMarkdown>
-          </Box>
-        </Link>
-      </NextLink>
+      <Link
+        target="_blank"
+        style={{ textDecoration: "none" }}
+        role="group"
+        aria-label={value.name}
+        href={value.link}
+      >
+        <Box bgColor="#011627" p={4} borderRadius="lg">
+          <Heading
+            fontSize="2xl"
+            pb={2}
+            _groupHover={{
+              textDecoration: "underline",
+            }}
+          >
+            {value.name}
+          </Heading>
+          <Text mb={2}>
+            {format(new Date(value.date), "EEEE, MMMM do yyyy")}
+          </Text>
+          <TextMarkdown>{value.description}</TextMarkdown>
+        </Box>
+      </Link>
     </Box>
   );
 };

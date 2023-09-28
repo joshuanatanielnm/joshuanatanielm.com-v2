@@ -1,6 +1,5 @@
 import type { GetStaticProps, NextPage } from "next";
 import { NextSeo } from "next-seo";
-import NextLink from "next/link";
 import {
   Box,
   Heading,
@@ -99,15 +98,19 @@ const Home: NextPage<HomePageProps> = ({ data }) => {
             <TextMarkdown>{data.home.title}</TextMarkdown>
             <Flex gap={6} pt={10}>
               {SOCIAL_LINKS.map((item) => (
-                <NextLink href={item.link} passHref key={item.title}>
-                  <Link target="_blank" p={2} aria-label={item.title}>
-                    <Icon
-                      title={item.title}
-                      icon={item.icon}
-                      aria-hidden="true"
-                    />
-                  </Link>
-                </NextLink>
+                <Link
+                  target="_blank"
+                  p={2}
+                  aria-label={item.title}
+                  href={item.link}
+                  key={item.title}
+                >
+                  <Icon
+                    title={item.title}
+                    icon={item.icon}
+                    aria-hidden="true"
+                  />
+                </Link>
               ))}
             </Flex>
           </Stack>

@@ -1,4 +1,3 @@
-import NextLink from "next/link";
 import { ListItem, Text, Link, Box } from "@chakra-ui/react";
 import { format } from "date-fns";
 import { ExperienceType } from "../pages/api/fetch";
@@ -12,17 +11,16 @@ export const ExperienceList = ({ value }: ExperienceListProps) => {
       <ListItem color="gray.300">
         <>
           {value.title} at{" "}
-          <NextLink href={value.link || ""} passHref>
-            <Link
-              color="white"
-              fontWeight="medium"
-              target="_blank"
-              fontSize={{ base: "lg", md: "xl" }}
-              aria-label={value.at}
-            >
-              {value.at}
-            </Link>
-          </NextLink>{" "}
+          <Link
+            href={value.link || ""}
+            color="white"
+            fontWeight="medium"
+            target="_blank"
+            fontSize={{ base: "lg", md: "xl" }}
+            aria-label={value.at}
+          >
+            {value.at}
+          </Link>{" "}
           ({format(new Date(value.startDate), "MMMM yyyy")} -{" "}
           {value.endDate == null
             ? "Present"
