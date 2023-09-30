@@ -1,4 +1,12 @@
-import { Box, HStack, chakra, Flex, Spacer, SlideFade } from "@chakra-ui/react";
+import {
+  Box,
+  HStack,
+  chakra,
+  Flex,
+  Spacer,
+  SlideFade,
+  Link as ChakraLink,
+} from "@chakra-ui/react";
 import { NAVIGATION } from "../constant/routes";
 import Link from "react-scroll/modules/components/Link";
 
@@ -59,23 +67,37 @@ export const Navigation = () => {
                 role="group"
                 key={v.path}
               >
-                <NavigationLink
-                  activeClass="active"
-                  role="button"
-                  to={v.path}
-                  aria-label={`go to ${v.title}`}
-                  spy
-                  smooth
-                  color="gray.300"
-                  _groupHover={{
-                    color: "white",
-                  }}
-                  py={6}
-                  offset={-30}
-                  duration={1000}
-                >
-                  {v.title}
-                </NavigationLink>
+                {v.path ? (
+                  <NavigationLink
+                    activeClass="active"
+                    role="button"
+                    to={v.path}
+                    aria-label={`go to ${v.title}`}
+                    spy
+                    smooth
+                    color="gray.300"
+                    _groupHover={{
+                      color: "white",
+                    }}
+                    py={6}
+                    offset={-30}
+                    duration={1000}
+                  >
+                    {v.title}
+                  </NavigationLink>
+                ) : (
+                  <ChakraLink
+                    className="active"
+                    color="gray.300"
+                    _groupHover={{
+                      color: "white",
+                    }}
+                    py={6}
+                    style={{ textDecoration: "none" }}
+                  >
+                    {v.title}
+                  </ChakraLink>
+                )}
                 <Box
                   w="full"
                   h={1}

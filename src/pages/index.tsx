@@ -97,7 +97,7 @@ const Home: NextPage<HomePageProps> = ({ data }) => {
               digital products
             </Heading>
             <Text pb={6} fontSize="xl" fontWeight="700" color="white">
-              Currently Software Engineer at Elogram.inc
+              Currently Frontend Developer at Elogram.inc
             </Text>
             <TextMarkdown>{data.home.title}</TextMarkdown>
             <Flex gap={6} pt={10}>
