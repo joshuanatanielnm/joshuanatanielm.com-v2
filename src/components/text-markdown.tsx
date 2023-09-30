@@ -13,7 +13,7 @@ export const TextMarkdown = ({ children }: TextMarkdownProps) => {
     p: (props: ReactMarkdownProps) => {
       const { children } = props;
       return (
-        <Text fontSize={{ base: "lg", md: "xl" }} color="gray.300">
+        <Text fontSize={{ base: "lg", md: "lg" }} color="gray.300">
           {children}
         </Text>
       );
