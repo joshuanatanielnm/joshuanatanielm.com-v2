@@ -94,6 +94,8 @@ export const Navigation = () => {
                     }}
                     py={6}
                     style={{ textDecoration: "none" }}
+                    href={v.link}
+                    isExternal
                   >
                     {v.title}
                   </ChakraLink>
