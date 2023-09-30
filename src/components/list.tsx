@@ -1,4 +1,4 @@
-import { ListItem, Text, Link, Box } from "@chakra-ui/react";
+import { ListItem, Text, Link, Box, chakra } from "@chakra-ui/react";
 import { format } from "date-fns";
 import { ExperienceType } from "../pages/api/fetch";
 
@@ -11,6 +11,27 @@ export const ExperienceList = ({ value }: ExperienceListProps) => {
       <ListItem color="gray.300">
         <>
           {value.title} at{" "}
+          {value.link ? (
+            <Link
+              href={value.link || ""}
+              color="white"
+              fontWeight="medium"
+              target="_blank"
+              fontSize={{ base: "lg", md: "xl" }}
+              aria-label={value.at}
+            >
+              {value.at}
+            </Link>
+          ) : (
+            <chakra.span
+              color="white"
+              fontWeight="medium"
+              fontSize={{ base: "lg", md: "xl" }}
+              aria-label={value.at}
+            >
+              {value.at}
+            </chakra.span>
+          )}{" "}
           <Link
             href={value.link || ""}
             color="white"
