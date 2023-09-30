@@ -2,6 +2,7 @@ import {
   Box,
   Heading,
   HStack,
+  Image,
   Link,
   Spacer,
   Stack,
@@ -13,7 +14,6 @@ import { format } from "date-fns";
 import { GitHub, Link as LinkIcon } from "iconoir-react";
 
 import { Icon } from "./icon";
-import Image from "next/image";
 
 const TextMarkdown = dynamic(() => import("./text-markdown"), {
   ssr: false,
@@ -56,8 +56,8 @@ export const ProjectCard = ({ value }: ProjectCardProps) => {
             src={value.image.url}
             alt=""
             width={800}
-            height={420}
-            quality={70}
+            objectFit="cover"
+            height={300}
           />
         </Box>
         <Stack justifyContent="center" py={4} px={{ base: 3, md: 6 }} h="full">
