@@ -87,14 +87,18 @@ const Home: NextPage<HomePageProps> = ({ data }) => {
             </Text>
             <Heading
               as="h1"
-              size={{ base: "3xl", md: "4xl" }}
-              textShadow="-7px -5px #ffffff"
+              size="2xl"
+              textShadow="-4px -4px #ffffff"
               pb={3}
               bgGradient="linear(to-l, #879af2, #d3208b, #fda000)"
               bgClip="text"
             >
-              I build things for the web.
+              Software Engineer that love to create performant and beautiful
+              digital products
             </Heading>
+            <Text pb={6} fontSize="xl" fontWeight="700" color="white">
+              Currently Software Engineer at Elogram.inc
+            </Text>
             <TextMarkdown>{data.home.title}</TextMarkdown>
             <Flex gap={6} pt={10}>
               {SOCIAL_LINKS.map((item) => (
@@ -126,9 +130,12 @@ const Home: NextPage<HomePageProps> = ({ data }) => {
               justifyContent="space-between"
               spacing={4}
             >
-              <Box w={{ base: "full", lg: "70%" }}>
+              <Stack
+                w={{ base: "full", lg: "70%" }}
+                spacing={{ base: 6, md: 4 }}
+              >
                 <TextMarkdown>{data.home.aboutMe}</TextMarkdown>
-              </Box>
+              </Stack>
               <Center>
                 <Box boxSize={{ base: 40, md: 60, lg: 72 }} position="relative">
                   <Image

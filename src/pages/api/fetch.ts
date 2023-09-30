@@ -20,6 +20,7 @@ export type ExperienceType = {
   link: string;
   at: string;
   jobDescription: string;
+  description: string;
 };
 
 export type ProjectType = {
@@ -84,6 +85,7 @@ export async function getHome() {
           link
           startDate
           endDate
+          description
         }
         allCommunityExperiences(orderBy: startDate_DESC){
           title
