@@ -81,6 +81,7 @@ const Home: NextPage<HomePageProps> = ({ data }) => {
             direction="column"
             justifyContent="center"
             id="hero"
+            py={20}
           >
             <Text fontSize={{ base: "3xl", md: "4xl" }} lineHeight={10}>
               Hello, I`m Joshua Manuputty
@@ -88,7 +89,10 @@ const Home: NextPage<HomePageProps> = ({ data }) => {
             <Heading
               as="h1"
               size="2xl"
-              textShadow="-4px -4px #ffffff"
+              textShadow={{
+                base: "-3px -3px #ffffff",
+                md: "-4px -4px #ffffff",
+              }}
               pb={3}
               bgGradient="linear(to-l, #879af2, #d3208b, #fda000)"
               bgClip="text"
