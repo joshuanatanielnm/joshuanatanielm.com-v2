@@ -52,7 +52,12 @@ export const ProjectCard = ({ value }: ProjectCardProps) => {
           }}
           opacity={0.5}
         >
-          <Image src={value.image.url} alt="" objectFit="cover" width={800} />
+          <Image
+            src={value.image.url}
+            alt=""
+            width={{ base: "unset", lg: 800 }}
+            height={{ base: "unset", lg: 300 }}
+          />
         </Box>
         <Stack justifyContent="center" py={4} px={{ base: 3, md: 6 }} h="full">
           <Heading fontSize="2xl" pb={2}>
