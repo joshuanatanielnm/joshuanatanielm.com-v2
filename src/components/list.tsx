@@ -32,16 +32,6 @@ export const ExperienceList = ({ value }: ExperienceListProps) => {
               {value.at}
             </chakra.span>
           )}{" "}
-          <Link
-            href={value.link || ""}
-            color="white"
-            fontWeight="medium"
-            target="_blank"
-            fontSize={{ base: "lg", md: "xl" }}
-            aria-label={value.at}
-          >
-            {value.at}
-          </Link>{" "}
           ({format(new Date(value.startDate), "MMMM yyyy")} -{" "}
           {value.endDate == null
             ? "Present"
