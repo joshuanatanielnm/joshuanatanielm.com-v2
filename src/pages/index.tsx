@@ -100,9 +100,9 @@ const Home: NextPage<HomePageProps> = ({ data }) => {
               Software Engineer that love to create performant and beautiful
               digital products
             </Heading>
-            <Text pb={6} fontSize="xl" fontWeight="700" color="white">
+            {/* <Text pb={6} fontSize="xl" fontWeight="700" color="white">
               Currently Frontend Developer at Elogram.inc
-            </Text>
+            </Text> */}
             <TextMarkdown>{data.home.title}</TextMarkdown>
             <Flex gap={6} pt={10}>
               {SOCIAL_LINKS.map((item) => (
